@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap');
+
+:root {
+    --ink: #171717;
+    --paper: #f7f5ef;
+    --muted: #6b6b67;
+    --line: #222;
+    --soft: #e8e5dc;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--ink);
+    background: var(--paper);
+    font-family: 'Space Grotesk', Arial, sans-serif;
+    background-image: radial-gradient(#c9c5bb 0.7px, transparent 0.7px);
+    background-size: 9px 9px;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    opacity: .16;
+    background: repeating-linear-gradient(0deg, transparent 0 5px, #777 6px 7px);
+    mix-blend-mode: multiply;
+}
+
+body > * { position: relative; }
+
+body > h1, body > p, body > a, body > form, body > table, body > fieldset {
+    max-width: 920px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    margin-top: 4rem;
+    margin-bottom: 1.6rem;
+    font-family: Kalam, cursive;
+    font-size: clamp(2.2rem, 6vw, 4.6rem);
+    line-height: .95;
+    letter-spacing: -.04em;
+    transform: rotate(-1deg);
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 9rem;
+    border-bottom: 4px solid var(--ink);
+    transform: rotate(2deg);
+    margin-top: .6rem;
+}
+
+form, fieldset, table {
+    background: rgba(255,255,255,.62);
+    border: 2px solid var(--line);
+    box-shadow: 5px 5px 0 var(--ink);
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+label { display: block; margin: .9rem 0; font-weight: 700; }
+input, textarea, select {
+    display: block;
+    width: 100%;
+    max-width: 620px;
+    margin-top: .35rem;
+    padding: .75rem .85rem;
+    border: 2px solid var(--line);
+    border-radius: 2px;
+    background: #fff;
+    color: var(--ink);
+    font: inherit;
+}
+textarea { min-height: 100px; resize: vertical; }
+input:focus, textarea:focus, select:focus { outline: 3px solid #aaa; outline-offset: 2px; }
+
+button, .button, a {
+    color: var(--ink);
+    font-weight: 700;
+}
+
+button, .button {
+    display: inline-block;
+    padding: .7rem 1rem;
+    border: 2px solid var(--ink);
+    border-radius: 2px;
+    background: var(--ink);
+    color: white;
+    cursor: pointer;
+    font: inherit;
+    text-decoration: none;
+    box-shadow: 3px 3px 0 #999;
+}
+
+button:hover, .button:hover { background: #444; transform: translate(1px, 1px); }
+a { text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { background: var(--ink); color: white; }
+
+small { display: block; color: #a00000; margin: .2rem 0 .4rem; }
+fieldset { margin-bottom: 1rem; }
+legend { padding: 0 .5rem; font-family: Kalam, cursive; font-size: 1.4rem; font-weight: 700; }
+fieldset label { font-weight: 400; }
+fieldset input[type=radio] { display: inline-block; width: auto; margin-right: .5rem; }
+
+table { width: min(920px, calc(100% - 2rem)); border-collapse: collapse; padding: 0; overflow: hidden; }
+th, td { padding: .8rem; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+th { background: var(--ink); color: white; }
+td form { display: inline; padding: 0; border: 0; box-shadow: none; background: none; }
+td form button { padding: .35rem .6rem; font-size: .85rem; }
+
+@media (max-width: 640px) {
+    body > h1, body > p, body > a, body > form, body > fieldset { margin-left: 1rem; margin-right: 1rem; }
+    table { display: block; overflow-x: auto; }
+}

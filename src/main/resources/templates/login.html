@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Login</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body>
+<h1>Quiz Application</h1>
+<p th:if="${param.registered}">Registration successful. Please log in.</p>
+<p th:if="${loginError}" th:text="${loginError}"></p>
+<form th:action="@{/user/login}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <label>Username <input type="text" name="username" required minlength="3" maxlength="30"></label><br>
+    <label>Password <input type="password" name="password" required minlength="6"></label><br>
+    <button type="submit">Login</button>
+</form>
+<a th:href="@{/user/register}">Create an account</a>
+</body>
+</html>

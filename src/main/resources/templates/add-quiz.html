@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Add Quiz</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body>
+<h1>Add Quiz Question</h1>
+<form th:action="@{/quiz/questions}" th:object="${question}" method="post">
+    <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+    <label>Question <textarea th:field="*{questionText}" required></textarea></label><small th:errors="*{questionText}"></small><br>
+    <label>Option 1 <input name="options[0]" required></label><br>
+    <label>Option 2 <input name="options[1]" required></label><br>
+    <label>Option 3 <input name="options[2]" required></label><br>
+    <label>Option 4 <input name="options[3]" required></label><br>
+    <label>Correct answer <input name="correctAnswer" required placeholder="Enter the correct option text"></label><br>
+    <button type="submit">Save quiz</button>
+</form><a th:href="@{/quiz/quizList}">Back</a>
+</body></html>

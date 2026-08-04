@@ -1,0 +1,7 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Result</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body>
+<h1>Quiz Result</h1>
+<p>User: <strong th:text="${username}"></strong></p>
+<p>Score: <strong th:text="${score}"></strong> / <strong th:text="${total}"></strong></p>
+<a th:href="@{/quiz/quiz}">Try again</a>
+</body></html>

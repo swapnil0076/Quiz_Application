@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Quiz List</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body>
+<h1>Quiz List</h1>
+<a th:href="@{/quiz/addQuiz}">Add quiz question</a>
+<form th:action="@{/logout}" method="post"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button>Logout</button></form>
+<table border="1"><tr><th>Question</th><th>Options</th><th>Correct answer</th><th>Actions</th></tr>
+<tr th:each="question : ${questions}">
+    <td th:text="${question.questionText}"></td><td th:text="${question.options}"></td>
+    <td th:text="${question.correctAnswer}"></td><td>
+        <a th:href="@{/quiz/editQuiz/{id}/page(id=${question.id})}">Edit</a>
+        <form th:action="@{/quiz/questions/{id}/delete(id=${question.id})}" method="post" style="display:inline"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button>Delete</button></form>
+    </td>
+</tr></table>
+</body></html>
