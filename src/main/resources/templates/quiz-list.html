@@ -3,8 +3,9 @@
 <head><meta charset="UTF-8"><title>Quiz List</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
 <body>
 <h1>Quiz List</h1>
+<nav><a href="javascript:history.back()">← Back</a>
+<form th:action="@{/logout}" method="post" style="display:inline; margin-left:1rem;"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button>Logout</button></form></nav>
 <a th:href="@{/quiz/addQuiz}">Add quiz question</a>
-<form th:action="@{/logout}" method="post"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button>Logout</button></form>
 <table border="1"><tr><th>Question</th><th>Options</th><th>Correct answer</th><th>Actions</th></tr>
 <tr th:each="question : ${questions}">
     <td th:text="${question.questionText}"></td><td th:text="${question.options}"></td>

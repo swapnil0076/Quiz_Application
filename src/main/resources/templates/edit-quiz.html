@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org"><head><meta charset="UTF-8"><title>Edit Quiz</title><link rel="stylesheet" th:href="@{/css/style.css}"></head><body>
 <h1>Edit Quiz Question</h1>
+<nav><a href="javascript:history.back()">← Back</a>
+<form th:action="@{/logout}" method="post" style="display:inline; margin-left:1rem;"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button>Logout</button></form></nav>
 <form th:action="@{/quiz/editQuiz/{id}(id=${question.id})}" th:object="${question}" method="post">
     <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
     <label>Question <textarea th:field="*{questionText}" required></textarea></label><br>
